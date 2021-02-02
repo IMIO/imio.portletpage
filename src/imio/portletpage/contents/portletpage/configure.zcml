@@ -1,0 +1,41 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="plone">
+
+    <permission
+        id="imio.portletpage.AddPortletPage"
+        title="imio.portletpage: Add PortletPage"
+    />
+
+    <browser:page
+        name="view"
+        for=".content.IPortletPage"
+        class=".view.ViewView"
+        template="view.pt"
+        permission="zope2.View"
+        layer="imio.portletpage.interfaces.IBrowserLayer"
+        />
+
+    <browser:page
+        name="edit"
+        for=".content.IPortletPage"
+        class=".edit.EditView"
+        template="edit.pt"
+        permission="zope2.View"
+        layer="imio.portletpage.interfaces.IBrowserLayer"
+        />
+
+    <adapter
+        for="imio.portletpage.contents.IPortletPage
+             imio.portletpage.interfaces.IBrowserLayer
+             plone.app.portlets.browser.interfaces.IManageContextualPortletsView
+             plone.portlets.interfaces.IPortletManager"
+        factory=".manager.EditPortletManagerRenderer"
+        provides="plone.portlets.interfaces.IPortletManagerRenderer"
+        />
+        
+</configure>

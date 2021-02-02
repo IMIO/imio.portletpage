@@ -1,0 +1,10 @@
+<html metal:use-macro="here/main_template/macros/master">
+
+<metal:main fill-slot="main">
+   
+    <div tal:replace="structure provider:imio.portletpage.portlets" />
+
+</metal:main>
+
+</html>
+        

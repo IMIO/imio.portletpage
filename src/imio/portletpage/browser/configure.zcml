@@ -8,7 +8,7 @@
   <include package="z3c.jbot" file="meta.zcml" />
   <browser:jbot
       directory="overrides"
-      layer="imio.portletpage.interfaces.IImioPortletpageLayer"
+      layer="imio.portletpage.interfaces.IBrowserLayer"
       />
 
   <!-- Publish static files -->

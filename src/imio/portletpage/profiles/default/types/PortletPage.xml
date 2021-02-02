@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    name="PortletPage"
+    meta_type="Dexterity FTI"
+    i18n:domain="imio.portletpage">
+
+  <!-- Basic properties -->
+  <property
+      i18n:translate=""
+      name="title">PortletPage</property>
+  <property
+      i18n:translate=""
+      name="description">A portlet content type for homepage.</property>
+
+  <property name="allow_discussion">False</property>
+
+  <!-- Hierarchy control -->
+  <property name="global_allow">True</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types">
+    <element value="Image" />
+    <element value="File" />
+  </property>
+
+  <!-- Schema, class and security -->
+  <property name="add_permission">imio.portletpage.AddPortletPage</property>
+  <property name="klass">imio.portletpage.contents.PortletPage</property>
+  <property name="schema">imio.portletpage.contents.IPortletPage</property>
+
+  <!-- Enabled behaviors -->
+  <property name="behaviors" purge="false">
+    <element value="plone.namefromtitle"/>
+    <element value="plone.locking" />
+  </property>
+
+  <!-- View information -->
+  <property name="default_view">view</property>
+  <property name="view_methods">
+    <element value="view"/>
+  </property>
+
+</object>

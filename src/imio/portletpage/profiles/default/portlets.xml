@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<portlets>
+
+    <portletmanager
+        name="imio.portletpage.portlets"
+        type="imio.portletpage.contents.IPortletPageManager"
+        />
+
+    <portlet addview="portlets.Actions" extend="True">
+        <for interface="imio.portletpage.contents.IPortletPageManager" />
+    </portlet>
+
+</portlets>

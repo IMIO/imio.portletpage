@@ -2,6 +2,6 @@
 <layers>
   <layer
       name="imio.portletpage"
-      interface="imio.portletpage.interfaces.IImioPortletpageLayer"
+      interface="imio.portletpage.interfaces.IBrowserLayer"
       />
 </layers>
