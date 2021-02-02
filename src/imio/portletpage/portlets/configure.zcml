@@ -1,0 +1,17 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone">
+
+  <include package="plone.app.portlets" />
+
+
+  <plone:portlet
+    name="imio.portletpage.portlets.Text"
+    interface=".text.portlet.ITextPortlet"
+    assignment=".text.portlet.Assignment"
+    renderer=".text.portlet.Renderer"
+    addview=".text.portlet.AddForm"
+    editview=".text.portlet.EditForm" />
+    
+</configure>

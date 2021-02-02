@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<portlets>
+
+    <portletmanager remove="true" name="imio.portletpage.portlets"/>
+    <portlet remove="true" addview="imio.portletpage.portlets.Text" />
+   
+</portlets>

@@ -6,8 +6,18 @@
         type="imio.portletpage.contents.IPortletPageManager"
         />
 
-    <portlet addview="portlets.Actions" extend="True">
+    <portlet
+        title="Text portlet"
+        addview="imio.portletpage.portlets.Text">
         <for interface="imio.portletpage.contents.IPortletPageManager" />
     </portlet>
+
+    <portlet
+        title="Action portlet"
+        addview="portlets.Actions" extend="True">
+        <for interface="imio.portletpage.contents.IPortletPageManager" />
+    </portlet>
+
+    
 
 </portlets>
