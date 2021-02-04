@@ -6,19 +6,27 @@
   <include package="plone.app.portlets" />
 
   <plone:portlet
-    name="imio.portletpage.portlets.Text"
-    interface=".text.portlet.ITextPortlet"
-    assignment=".text.portlet.Assignment"
-    renderer=".text.portlet.Renderer"
-    addview=".text.portlet.AddForm"
-    editview=".text.portlet.EditForm" />
-
-  <plone:portlet
     name="imio.portletpage.portlets.Collection"
     interface=".collection.portlet.ICollectionPortlet"
     assignment=".collection.portlet.Assignment"
     renderer=".collection.portlet.Renderer"
     addview=".collection.portlet.AddForm"
     editview=".collection.portlet.EditForm" />
+
+  <plone:portlet
+    name="imio.portletpage.portlets.Selection"
+    interface=".selection.portlet.ISelectionPortlet"
+    assignment=".selection.portlet.Assignment"
+    renderer=".selection.portlet.Renderer"
+    addview=".selection.portlet.AddForm"
+    editview=".selection.portlet.EditForm" />
+
+  <plone:portlet
+    name="imio.portletpage.portlets.Text"
+    interface=".text.portlet.ITextPortlet"
+    assignment=".text.portlet.Assignment"
+    renderer=".text.portlet.Renderer"
+    addview=".text.portlet.AddForm"
+    editview=".text.portlet.EditForm" />
     
 </configure>

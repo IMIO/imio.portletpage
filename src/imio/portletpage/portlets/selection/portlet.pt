@@ -1,0 +1,21 @@
+<section class="portlet portletSelection ${view/data/css_classes}" i18n:domain="imio.portletpage">
+
+    <header class="portletHeader">
+            ${view/data/header}
+    </header>
+
+    <section class="portletContent">
+        <div class="card-group">
+            <div class="card" tal:repeat="item view/items">
+                <a href="${item/url}">
+                <img src="${item/image_url}" class="card-img-top" alt="Item image" tal:condition="item/image_url">
+                <div class="card-body">
+                    <h3 class="card-title">${item/title}</h3>
+                    <p class="card-text" tal:condition="item/description">${item/description}</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</section>

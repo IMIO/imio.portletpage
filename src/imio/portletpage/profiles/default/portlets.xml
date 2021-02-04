@@ -6,9 +6,10 @@
         type="imio.portletpage.contents.IPortletPageManager"
         />
 
+    <!-- TODO ? Move to imio.smartweb.policy -->
     <portlet
-        title="Text portlet"
-        addview="imio.portletpage.portlets.Text">
+        title="Action portlet"
+        addview="portlets.Actions" extend="True">
         <for interface="imio.portletpage.contents.IPortletPageManager" />
     </portlet>
 
@@ -19,11 +20,15 @@
     </portlet>
 
     <portlet
-        title="Action portlet"
-        addview="portlets.Actions" extend="True">
+        title="Selection portlet"
+        addview="imio.portletpage.portlets.Selection">
         <for interface="imio.portletpage.contents.IPortletPageManager" />
     </portlet>
 
-    
+    <portlet
+        title="Text portlet"
+        addview="imio.portletpage.portlets.Text">
+        <for interface="imio.portletpage.contents.IPortletPageManager" />
+    </portlet>
 
 </portlets>
