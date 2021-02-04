@@ -35,7 +35,6 @@ class ITextPortlet(IPortletDataProvider):
 
 @implementer(ITextPortlet)
 class Assignment(base.Assignment):
-    schema = ITextPortlet
 
     def __init__(self, header=u"", text=u"", css_classes=u""):
         self.header = header
