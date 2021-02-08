@@ -1,4 +1,3 @@
-<div>
 <section 
     tal:attributes="class string:portlet portletText ${view/data/css_classes}"
     i18n:domain="imio.portletpage">
@@ -8,4 +7,3 @@
     </section>
 
 </section>
-</div>
