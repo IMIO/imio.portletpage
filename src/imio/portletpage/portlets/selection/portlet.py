@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from imio.portletpage import _
+from imio.portletpage.interfaces import IPortletTemplate
 from importlib.resources import is_resource, path
 from plone import api
 from plone import schema
-from plone.app.z3cform.widget import RichTextFieldWidget
 from plone.app.portlets.portlets import base
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.app.z3cform.widget import RichTextFieldWidget
 from plone.autoform import directives
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getMultiAdapter
 from zope.interface import implementer
-
-from imio.portletpage import _
 
 
 class ISelectionPortlet(IPortletDataProvider):
@@ -27,11 +27,12 @@ class ISelectionPortlet(IPortletDataProvider):
         value_type=schema.Choice(vocabulary="plone.app.vocabularies.Catalog"),
     )
 
-    # template = schema.Choice(
-    #     title=_(u"Template"),
-    #     required=False,
-    #     default=u"",
-    #     vocabulary='imio.portletpage.PortletSelectionTemplates')
+    template = schema.Choice(
+        title=_(u"Template"),
+        required=False,
+        default=u"",
+        vocabulary="imio.portletpage.PortletTemplates",
+    )
 
     css_classes = schema.TextLine(
         title=_(u"CSS Classes"),
@@ -42,10 +43,11 @@ class ISelectionPortlet(IPortletDataProvider):
 
 @implementer(ISelectionPortlet)
 class Assignment(base.Assignment):
-    def __init__(self, header=u"", content_uids=[], css_classes=u""):
+    def __init__(self, header=u"", content_uids=[], css_classes=u"", template=None):
         self.header = header
         self.content_uids = content_uids
         self.css_classes = css_classes
+        self.template = template
 
     @property
     def title(self):
@@ -66,7 +68,11 @@ class EditForm(base.EditForm):
 
 
 class Renderer(base.Renderer):
-    render = ViewPageTemplateFile("portlet.pt")
+    def render(self):
+        adapter = getMultiAdapter(
+            (self.context, self.request), IPortletTemplate, name=self.data.template
+        )
+        return adapter.render()
 
     @property
     @memoize

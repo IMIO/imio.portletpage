@@ -11,7 +11,8 @@
     assignment=".collection.portlet.Assignment"
     renderer=".collection.portlet.Renderer"
     addview=".collection.portlet.AddForm"
-    editview=".collection.portlet.EditForm" />
+    editview=".collection.portlet.EditForm"
+    />
 
   <plone:portlet
     name="imio.portletpage.portlets.Selection"
@@ -19,7 +20,8 @@
     assignment=".selection.portlet.Assignment"
     renderer=".selection.portlet.Renderer"
     addview=".selection.portlet.AddForm"
-    editview=".selection.portlet.EditForm" />
+    editview=".selection.portlet.EditForm"
+    />
 
   <plone:portlet
     name="imio.portletpage.portlets.Text"
@@ -27,6 +29,35 @@
     assignment=".text.portlet.Assignment"
     renderer=".text.portlet.Renderer"
     addview=".text.portlet.AddForm"
-    editview=".text.portlet.EditForm" />
-    
+    editview=".text.portlet.EditForm"
+    />
+
+  <!-- vocabularies -->
+  <utility
+    component=".vocabularies.PortletTemplateVocabulary"
+    name="imio.portletpage.PortletTemplates"
+    />
+
+  <!-- portlet template adapters -->
+  <adapter
+    for="*
+         *"
+    factory=".templates.carousel.CarouselTemplate"
+    name="carousel"
+    />
+
+  <adapter
+    for="*
+         *"
+    factory=".templates.grid.GridTemplate"
+    name="grid"
+    />
+
+  <adapter
+    for="*
+         *"
+    factory=".templates.list.ListTemplate"
+    name="list"
+    />
+
 </configure>
