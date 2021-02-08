@@ -20,6 +20,12 @@
     </portlet>
 
     <portlet
+        title="Link portlet"
+        addview="imio.portletpage.portlets.Link">
+        <for interface="imio.portletpage.contents.IPortletPageManager" />
+    </portlet>
+
+    <portlet
         title="Selection portlet"
         addview="imio.portletpage.portlets.Selection">
         <for interface="imio.portletpage.contents.IPortletPageManager" />

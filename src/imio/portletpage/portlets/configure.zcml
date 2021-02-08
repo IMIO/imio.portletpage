@@ -15,6 +15,15 @@
     />
 
   <plone:portlet
+    name="imio.portletpage.portlets.Link"
+    interface=".link.portlet.ILinkPortlet"
+    assignment=".link.portlet.Assignment"
+    renderer=".link.portlet.Renderer"
+    addview=".link.portlet.AddForm"
+    editview=".link.portlet.EditForm"
+    />
+
+  <plone:portlet
     name="imio.portletpage.portlets.Selection"
     interface=".selection.portlet.ISelectionPortlet"
     assignment=".selection.portlet.Assignment"
