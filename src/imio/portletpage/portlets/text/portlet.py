@@ -30,7 +30,7 @@ class ITextPortlet(IPortletDataProvider):
     css_classes = schema.TextLine(
         title=_(u"CSS Classes"),
         description=_(u"CSS Classes to personalise portlet"),
-        required=True)
+        required=False)
 
 
 @implementer(ITextPortlet)
