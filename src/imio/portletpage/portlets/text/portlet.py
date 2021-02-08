@@ -16,26 +16,22 @@ from imio.portletpage import _
 
 class ITextPortlet(IPortletDataProvider):
 
-    header = schema.TextLine(
-        title=_(u"Title"),
-        required=True
-    )
+    header = schema.TextLine(title=_(u"Title"), required=True)
 
     directives.widget(text=RichTextFieldWidget)
     text = RichText(
-        title=_(u"Text"),
-        description=_(u"The text to render"),
-        required=True)
+        title=_(u"Text"), description=_(u"The text to render"), required=True
+    )
 
     css_classes = schema.TextLine(
         title=_(u"CSS Classes"),
         description=_(u"CSS Classes to personalise portlet"),
-        required=False)
+        required=False,
+    )
 
 
 @implementer(ITextPortlet)
 class Assignment(base.Assignment):
-
     def __init__(self, header=u"", text=u"", css_classes=u""):
         self.header = header
         self.text = text
@@ -45,9 +41,10 @@ class Assignment(base.Assignment):
     def title(self):
         return self.header
 
+
 class AddForm(base.AddForm):
     schema = ITextPortlet
-    label = _(u'Add Text Portlet')
+    label = _(u"Add Text Portlet")
 
     def create(self, data):
         return Assignment(**data)
@@ -55,8 +52,8 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
     schema = ITextPortlet
-    label = _(u'Edit Text Portlet')
+    label = _(u"Edit Text Portlet")
 
 
 class Renderer(base.Renderer):
-    render = ViewPageTemplateFile('portlet.pt')
+    render = ViewPageTemplateFile("portlet.pt")

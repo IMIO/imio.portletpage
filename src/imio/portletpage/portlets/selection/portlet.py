@@ -17,23 +17,14 @@ from imio.portletpage import _
 
 class ISelectionPortlet(IPortletDataProvider):
 
-    header = schema.TextLine(
-        title=_(u"Title"),
-        required=True
-    )
+    header = schema.TextLine(title=_(u"Title"), required=True)
 
-    directives.widget(
-        'content_uids',
-        RelatedItemsFieldWidget,
-        pattern_options={}
-    )
+    directives.widget("content_uids", RelatedItemsFieldWidget, pattern_options={})
     content_uids = schema.List(
         title=_(u"Items"),
         description=_(u"Select the items of you portlet"),
         required=True,
-        value_type=schema.Choice(
-            vocabulary='plone.app.vocabularies.Catalog',
-        )
+        value_type=schema.Choice(vocabulary="plone.app.vocabularies.Catalog"),
     )
 
     # template = schema.Choice(
@@ -45,12 +36,12 @@ class ISelectionPortlet(IPortletDataProvider):
     css_classes = schema.TextLine(
         title=_(u"CSS Classes"),
         description=_(u"CSS Classes to personnalize the portlet style"),
-        required=False)
+        required=False,
+    )
 
 
 @implementer(ISelectionPortlet)
 class Assignment(base.Assignment):
-
     def __init__(self, header=u"", content_uids=[], css_classes=u""):
         self.header = header
         self.content_uids = content_uids
@@ -63,7 +54,7 @@ class Assignment(base.Assignment):
 
 class AddForm(base.AddForm):
     schema = ISelectionPortlet
-    label = _(u'Add Selection Portlet')
+    label = _(u"Add Selection Portlet")
 
     def create(self, data):
         return Assignment(**data)
@@ -71,7 +62,7 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
     schema = ISelectionPortlet
-    label = _(u'Edit Selection Portlet')
+    label = _(u"Edit Selection Portlet")
 
 
 class Renderer(base.Renderer):
@@ -87,10 +78,18 @@ class Renderer(base.Renderer):
     def items(self):
         infos = []
         for obj in self.contents:
-            infos.append({
-                'title': obj.title,
-                'description': obj.description if hasattr(obj, "description") else None,
-                'url': obj.remoteUrl  if hasattr(obj, "remoteUrl") else obj.absolute_url(),  # Use remoteUrl for Link content type
-                'image_url': obj.absolute_url() + "/@@images/image/preview" if (hasattr(obj, "image") and obj.image) else None,
-            })
+            infos.append(
+                {
+                    "title": obj.title,
+                    "description": obj.description
+                    if hasattr(obj, "description")
+                    else None,
+                    "url": obj.remoteUrl
+                    if hasattr(obj, "remoteUrl")
+                    else obj.absolute_url(),  # Use remoteUrl for Link content type
+                    "image_url": obj.absolute_url() + "/@@images/image/preview"
+                    if (hasattr(obj, "image") and obj.image)
+                    else None,
+                }
+            )
         return infos

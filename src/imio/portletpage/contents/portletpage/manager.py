@@ -14,8 +14,8 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 class EditPortletManagerRenderer(ContextualEditPortletManagerRenderer):
     """Render a portlet manager in edit mode for contextual portlets"""
- #   adapts(IPortletPage, IDefaultBrowserLayer,
- #          IManageContextualPortletsView, IPortletManager)
 
-    template = ViewPageTemplateFile('manager.pt')
-    
+    #   adapts(IPortletPage, IDefaultBrowserLayer,
+    #          IManageContextualPortletsView, IPortletManager)
+
+    template = ViewPageTemplateFile("manager.pt")

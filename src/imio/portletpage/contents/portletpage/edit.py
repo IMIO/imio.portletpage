@@ -9,11 +9,9 @@ from plone.dexterity.browser import edit
 
 # @implementer_only(ITopbarManagePortlets)
 class EditView(ManageContextualPortlets):
-
     def __init__(self, context, request):
         # Past the main parent constructor, since it sets disable_border
         super(ManageContextualPortlets, self).__init__(context, request)
         # Disable the left and right columns
-        self.request.set('disable_plone.leftcolumn', 1)
-        self.request.set('disable_plone.rightcolumn', 1)
-
+        self.request.set("disable_plone.leftcolumn", 1)
+        self.request.set("disable_plone.rightcolumn", 1)

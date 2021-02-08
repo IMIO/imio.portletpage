@@ -17,28 +17,25 @@ from imio.portletpage import _
 
 class ICollectionPortlet(IPortletDataProvider):
 
-    header = schema.TextLine(
-        title=_(u"Title"),
-        required=True
-    )
+    header = schema.TextLine(title=_(u"Title"), required=True)
 
     directives.widget(
-        'collection_uid',
+        "collection_uid",
         RelatedItemsFieldWidget,
-        pattern_options={'selectableTypes': ['Collection']}
+        pattern_options={"selectableTypes": ["Collection"]},
     )
     collection_uid = schema.Choice(
         title=_(u"Target collection"),
         description=_(u"Find the collection which provides the items to list"),
         required=True,
-        vocabulary='plone.app.vocabularies.Catalog',
+        vocabulary="plone.app.vocabularies.Catalog",
     )
 
     limit = schema.Int(
         title=_(u"Limit"),
-        description=_(u"Specify the maximum number of items to show in the "
-                      u"portlet."),
-        required=True)
+        description=_(u"Specify the maximum number of items to show in the portlet."),
+        required=True,
+    )
 
     # template = schema.Choice(
     #     title=_(u"Template"),
@@ -49,12 +46,12 @@ class ICollectionPortlet(IPortletDataProvider):
     css_classes = schema.TextLine(
         title=_(u"CSS Classes"),
         description=_(u"CSS Classes to personnalize the portlet style"),
-        required=False)
+        required=False,
+    )
 
 
 @implementer(ICollectionPortlet)
 class Assignment(base.Assignment):
-
     def __init__(self, header=u"", collection_uid=None, limit=None, css_classes=u""):
         self.header = header
         self.collection_uid = collection_uid
@@ -68,7 +65,7 @@ class Assignment(base.Assignment):
 
 class AddForm(base.AddForm):
     schema = ICollectionPortlet
-    label = _(u'Add Collection Portlet')
+    label = _(u"Add Collection Portlet")
 
     def create(self, data):
         return Assignment(**data)
@@ -76,7 +73,7 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
     schema = ICollectionPortlet
-    label = _(u'Edit Collection Portlet')
+    label = _(u"Edit Collection Portlet")
 
 
 class Renderer(base.Renderer):
@@ -99,19 +96,23 @@ class Renderer(base.Renderer):
         collection = self.collection
         limit = self.data.limit
         if collection is not None:
-            brains = collection.queryCatalog(
-                batch=True,
-                b_size=limit
-            )
+            brains = collection.queryCatalog(batch=True, b_size=limit)
             brains = brains._sequence  # TODO what is _sequence ?
             brains = brains[:limit]
             for b in brains:
                 obj = b.getObject()
-                infos.append({
-                    'title': obj.title,
-                    'description': obj.description if hasattr(obj, "description") else None,
-                    'url': obj.remoteUrl  if hasattr(obj, "remoteUrl") else obj.absolute_url(),  # Use remoteUrl for Link content type
-                    'image_url': obj.absolute_url() + "/@@images/image/preview" if (hasattr(obj, "image") and obj.image) else None,
-                })
+                infos.append(
+                    {
+                        "title": obj.title,
+                        "description": obj.description
+                        if hasattr(obj, "description")
+                        else None,
+                        "url": obj.remoteUrl
+                        if hasattr(obj, "remoteUrl")
+                        else obj.absolute_url(),  # Use remoteUrl for Link content type
+                        "image_url": obj.absolute_url() + "/@@images/image/preview"
+                        if (hasattr(obj, "image") and obj.image)
+                        else None,
+                    }
+                )
         return infos
-

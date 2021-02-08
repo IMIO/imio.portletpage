@@ -21,33 +21,28 @@ class ImioPortletpageLayer(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         import plone.restapi
+
         self.loadZCML(package=plone.restapi)
         self.loadZCML(package=imio.portletpage)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'imio.portletpage:default')
+        applyProfile(portal, "imio.portletpage:default")
 
 
 IMIO_PORTLETPAGE_FIXTURE = ImioPortletpageLayer()
 
 
 IMIO_PORTLETPAGE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(IMIO_PORTLETPAGE_FIXTURE,),
-    name='ImioPortletpageLayer:IntegrationTesting',
+    bases=(IMIO_PORTLETPAGE_FIXTURE,), name="ImioPortletpageLayer:IntegrationTesting"
 )
 
 
 IMIO_PORTLETPAGE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(IMIO_PORTLETPAGE_FIXTURE,),
-    name='ImioPortletpageLayer:FunctionalTesting',
+    bases=(IMIO_PORTLETPAGE_FIXTURE,), name="ImioPortletpageLayer:FunctionalTesting"
 )
 
 
 IMIO_PORTLETPAGE_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        IMIO_PORTLETPAGE_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name='ImioPortletpageLayer:AcceptanceTesting',
+    bases=(IMIO_PORTLETPAGE_FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, z2.ZSERVER_FIXTURE),
+    name="ImioPortletpageLayer:AcceptanceTesting",
 )

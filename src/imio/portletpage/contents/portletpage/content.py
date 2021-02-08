@@ -16,10 +16,7 @@ class IPortletPage(model.Schema):
     """ Marker interface and Dexterity Python Schema for PortletPage
     """
 
-    title = schema.TextLine(
-        title=_(u"Title"),
-        required=True
-    )
+    title = schema.TextLine(title=_(u"Title"), required=True)
 
 
 @implementer(IPortletPage)
