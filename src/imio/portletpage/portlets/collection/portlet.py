@@ -99,7 +99,7 @@ class Renderer(base.Renderer):
 
     @property
     @memoize
-    def collection_url(self):
+    def more_url(self):
         return self.collection.absolute_url()
 
     @property
