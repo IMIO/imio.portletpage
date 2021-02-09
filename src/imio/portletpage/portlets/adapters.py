@@ -20,3 +20,7 @@ class PortletTemplateAdapter(object):
 
     def render(self):
         return self.template()
+
+    @property
+    def data(self):
+        return self.context.data
