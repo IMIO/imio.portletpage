@@ -15,7 +15,9 @@ class PortletTemplateVocabularyFactory(object):
         # XXX Find a way to have the right context interface on add and edit portlet
         # form to allow only specific templates if necessary
         # context.REQUEST.PUBLISHED.schema return the schema from the current form view
-        adapters = getAdapters((context, context.REQUEST), IPortletTemplate)
+        adapters = getAdapters((context, context.REQUEST, context), IPortletTemplate)
+        # XXX The third parameter should be a mocked object because we don't have a 
+        # renderer in add or edit form
         terms = []
         for name, adapter in adapters:
             terms.append(

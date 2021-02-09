@@ -11,7 +11,7 @@ from zope.interface import Interface
 
 
 @named("grid")
-@adapter(Interface, Interface)
+@adapter(Interface, Interface, Interface)
 @implementer(IPortletTemplate)
 class GridTemplate(PortletTemplateAdapter):
     template = ViewPageTemplateFile("grid.pt")

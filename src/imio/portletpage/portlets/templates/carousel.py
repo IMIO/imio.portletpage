@@ -11,7 +11,7 @@ from zope.interface import Interface
 
 
 @named("carousel")
-@adapter(Interface, Interface)
+@adapter(Interface, Interface, Interface)
 @implementer(IPortletTemplate)
 class CarouselTemplate(PortletTemplateAdapter):
     template = ViewPageTemplateFile("carousel.pt")

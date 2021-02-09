@@ -6,7 +6,7 @@ from zope.interface import implementer
 from zope.interface import Interface
 
 
-@adapter(Interface, Interface)
+@adapter(Interface, Interface, Interface)
 @implementer(IPortletTemplate)
 class PortletTemplateAdapter(object):
     """Base Portlet Template Adapter class"""
@@ -14,9 +14,10 @@ class PortletTemplateAdapter(object):
     template = None
     title = None
 
-    def __init__(self, context, request):
+    def __init__(self, context, request, renderer):
         self.context = context
         self.request = request
+        self.renderer = renderer
 
     def render(self):
         return self.template()

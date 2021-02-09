@@ -11,7 +11,7 @@ from zope.interface import Interface
 
 
 @named("list")
-@adapter(Interface, Interface)
+@adapter(Interface, Interface, Interface)
 @implementer(IPortletTemplate)
 class ListTemplate(PortletTemplateAdapter):
     template = ViewPageTemplateFile("list.pt")
