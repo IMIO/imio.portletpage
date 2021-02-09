@@ -1,5 +1,10 @@
 <html metal:use-macro="here/main_template/macros/master">
 
+<metal:styleslot fill-slot="style_slot">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</metal:styleslot>
+
 <metal:main fill-slot="main">
    
     <div tal:replace="structure provider:imio.portletpage.portlets" />
