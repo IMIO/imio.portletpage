@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from imio.portletpage.interfaces import IPortletTemplate
+from zope.component import adapter
 from zope.interface import implementer
+from zope.interface import Interface
 
 
+@adapter(Interface, Interface)
 @implementer(IPortletTemplate)
 class PortletTemplateAdapter(object):
     """Base Portlet Template Adapter class"""

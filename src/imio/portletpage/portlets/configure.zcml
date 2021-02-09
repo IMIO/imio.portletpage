@@ -49,24 +49,15 @@
 
   <!-- portlet template adapters -->
   <adapter
-    for="*
-         *"
     factory=".templates.carousel.CarouselTemplate"
-    name="carousel"
     />
 
   <adapter
-    for="*
-         *"
     factory=".templates.grid.GridTemplate"
-    name="grid"
     />
 
   <adapter
-    for="*
-         *"
     factory=".templates.list.ListTemplate"
-    name="list"
     />
 
 </configure>
