@@ -88,7 +88,7 @@ class EditForm(base.EditForm):
 class Renderer(base.Renderer):
     def render(self):
         adapter = getMultiAdapter(
-            (self.context, self.request), IPortletTemplate, name=self.data.template
+            (self.data, self.request), IPortletTemplate, name=self.data.template
         )
         return adapter.render()
 
