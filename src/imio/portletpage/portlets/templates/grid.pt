@@ -1,1 +1,11 @@
-grid
+<section class="portlet portletTemplateGrid ${view/data/css_classes}" i18n:domain="imio.portletpage">
+
+    <header class="portletHeader">
+            ${view/data/header}
+    </header>
+
+    <section class="portletContent">
+        TODO - Grid template
+    </section>
+
+</section>

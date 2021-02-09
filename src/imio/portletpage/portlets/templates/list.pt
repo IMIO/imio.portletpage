@@ -1,1 +1,29 @@
-list
+<section class="portlet portletTemplateList ${view/data/css_classes}" i18n:domain="imio.portletpage">
+
+    <header class="portletHeader">
+            ${view/data/header}
+    </header>
+
+    <section class="portletContent row">
+        <div class="col" tal:repeat="item view/renderer/items">
+            <div class="card">
+                <a href="${item/url}">
+                <img src="${item/image_url}" class="card-img-top" alt="Item image" tal:condition="item/image_url">
+                <div class="card-body">
+                    <h3 class="card-title">${item/title}</h3>
+                    <p class="card-text" tal:condition="item/description">${item/description}</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="portletFooter"
+        tal:condition="python: hasattr(view.renderer, 'more_url')">
+        <a href="${view/renderer/more_url}">
+           <span class="hiddenStructure">${view/data/header} - </span>
+           <span i18n:translate="more_url">More&hellip;</span>
+        </a>
+    </footer>
+
+</section>
