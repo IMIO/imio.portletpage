@@ -60,4 +60,24 @@
     factory=".templates.list.ListTemplate"
     />
 
+  <!-- object factories -->
+  <adapter
+    factory=".link.portlet.LinkRowAdapter"
+    name="imio.portletpage.portlets.link.portlet.ILinkRow"
+    />
+
+  <!-- datamanager -->
+  <adapter
+    factory=".link.portlet.LinkDataManager"
+    />
+
+  <!-- custom widgets -->
+  <adapter
+    factory=".link.portlet.IconBlobFileFieldWidget"
+    />
+
+  <adapter
+    factory=".link.portlet.IconDataConverter"
+    />
+
 </configure>
