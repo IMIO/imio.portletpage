@@ -1,8 +1,44 @@
 <?xml version="1.0"?>
 <registry
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="imio.portletpage">
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="imio.portletpage">
 
-<!-- -*- extra stuff goes here -*- -->
+  <records prefix="plone.resources/manage-portlet"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++imio.portletpage/manage-portlet-pattern.js</value>
+    <value key="css">
+      <element>++plone++imio.portletpage/manage-portlet-pattern.less</element>
+    </value>
+  </records>
+
+  <records prefix="plone.bundles/imio.portletpage"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources">
+      <element>manage-portlet</element>
+    </value>
+    <value key="merge_with">logged-in</value>
+    <value key="enabled">True</value>
+    <value key="jscompilation">++plone++imio.portletpage/imio.portletpage-compiled.min.js</value>
+    <value key="csscompilation">++plone++imio.portletpage/imio.portletpage-compiled.css</value>
+    <value key="last_compilation">2016-10-04 00:00:00</value>
+    <value key="stub_js_modules">
+      <element>jquery.browser</element>
+      <element>jquery.event.drag</element>
+      <element>jquery.event.drop</element>
+      <element>jquery.form</element>
+      <element>jquery</element>
+      <element>logging</element>
+      <element>mockup-i18n</element>
+      <element>mockup-patterns-modal</element>
+      <element>mockup-utils</element>
+      <element>pat-base</element>
+      <element>pat-logger</element>
+      <element>pat-mockup-parser</element>
+      <element>pat-registry</element>
+      <element>plone-editor-tools</element>
+      <element>translate</element>
+      <element>underscore</element>
+    </value>
+  </records>
 
 </registry>
