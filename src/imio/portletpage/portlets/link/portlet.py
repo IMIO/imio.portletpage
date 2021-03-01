@@ -44,7 +44,6 @@ class IIconBlobFileWidget(INamedFileWidget):
 
 @implementer_only(IIconBlobFileWidget)
 class IconBlobFileWidget(NamedFileWidget):
-
     def extract(self, default=NO_VALUE):
         try:
             value = super(IconBlobFileWidget, self).extract(default=default)
@@ -87,25 +86,13 @@ class IconDataConverter(NamedDataConverter):
 
 
 class ILinkRow(model.Schema):
-    title = schema.TextLine(
-        title=_(u"Title"),
-        required=True
-    )
+    title = schema.TextLine(title=_(u"Title"), required=True)
 
-    internal_url = schema.URI(
-        title=_(u"Internal URL"),
-        required=False,
-    )
+    internal_url = schema.URI(title=_(u"Internal URL"), required=False,)
 
-    external_url = schema.URI(
-        title=_(u"External URL"),
-        required=False,
-    )
+    external_url = schema.URI(title=_(u"External URL"), required=False,)
 
-    icon = IconBlobFile(
-        title=_(u"Icon"),
-        required=True,
-    )
+    icon = IconBlobFile(title=_(u"Icon"), required=True,)
 
 
 @adapter(ILinkRow, IObject)
@@ -121,11 +108,11 @@ class LinkRow(object):
     external_url = FieldProperty(ILinkRow["external_url"])
     icon = FieldProperty(ILinkRow["icon"])
 
-    __name__ = ''
+    __name__ = ""
     __parent__ = None
 
     def getId(self):
-        return self.__name__ or ''
+        return self.__name__ or ""
 
     def __repr__(self):
         return "<LinkRow>"
@@ -139,10 +126,7 @@ class LinkRowAdapter(FactoryAdapter):
 
 class ILinkPortlet(IPortletDataProvider):
 
-    header = schema.TextLine(
-        title=_(u"Title"),
-        required=True
-    )
+    header = schema.TextLine(title=_(u"Title"), required=True)
 
     template = schema.Choice(
         title=_(u"Template"),
@@ -167,7 +151,6 @@ class ILinkPortlet(IPortletDataProvider):
 
 @implementer(ILinkPortlet)
 class Assignment(base.Assignment):
-
     def __init__(self, header=u"", template=None, css_classes=u"", links=None):
         self.header = header
         self.template = template
@@ -181,7 +164,7 @@ class Assignment(base.Assignment):
 
 class AddForm(base.AddForm):
     schema = ILinkPortlet
-    label = _(u'Add Link Portlet')
+    label = _(u"Add Link Portlet")
 
     def create(self, data):
         return Assignment(**data)
@@ -189,11 +172,10 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
     schema = ILinkPortlet
-    label = _(u'Edit Link Portlet')
+    label = _(u"Edit Link Portlet")
 
 
 class Renderer(base.Renderer):
-
     def render(self):
         adapter = getMultiAdapter(
             (self.data, self.request, self), IPortletTemplate, name=self.data.template

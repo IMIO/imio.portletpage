@@ -16,13 +16,11 @@ class PortletTemplateVocabularyFactory(object):
         # form to allow only specific templates if necessary
         # context.REQUEST.PUBLISHED.schema return the schema from the current form view
         adapters = getAdapters((context, context.REQUEST, context), IPortletTemplate)
-        # XXX The third parameter should be a mocked object because we don't have a 
+        # XXX The third parameter should be a mocked object because we don't have a
         # renderer in add or edit form
         terms = []
         for name, adapter in adapters:
-            terms.append(
-                SimpleVocabulary.createTerm(name, name, adapter.title)
-            )
+            terms.append(SimpleVocabulary.createTerm(name, name, adapter.title))
         return SimpleVocabulary(terms)
 
 

@@ -10,6 +10,7 @@ from zope.interface import Interface
 @implementer(IPortletTemplate)
 class PortletTemplateAdapter(object):
     """Base Portlet Template Adapter class"""
+
     # This must be overrided by sub classes
     template = None
     title = None
