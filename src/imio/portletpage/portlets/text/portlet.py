@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from imio.smartweb.locales import SmartwebMessageFactory as _
 from plone import schema
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RichTextFieldWidget
@@ -9,9 +10,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.form import field
 from zope.component import getMultiAdapter
 from zope.interface import implementer
-
-
-from imio.portletpage import _
 
 
 class ITextPortlet(IPortletDataProvider):

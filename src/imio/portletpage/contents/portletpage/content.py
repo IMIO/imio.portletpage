@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
+from imio.smartweb.locales import SmartwebMessageFactory as _
 from plone import schema
 from plone.app.portlets.interfaces import IPortletManager
 from plone.dexterity.content import Container
 from plone.supermodel import model
 from zope.interface import implementer
-
-from imio.portletpage import _
 
 
 class IPortletPageManager(IPortletManager):

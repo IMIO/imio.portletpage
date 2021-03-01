@@ -1,4 +1,4 @@
-<section class="portlet portletTemplateList ${view/data/css_classes}" i18n:domain="imio.portletpage">
+<section class="portlet portletTemplateList ${view/data/css_classes}" i18n:domain="imio.smartweb">
 
     <header class="portletHeader">
             ${view/data/header}

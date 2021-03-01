@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from imio.portletpage import _
 from imio.portletpage.interfaces import IPortletTemplate
+from imio.smartweb.locales import SmartwebMessageFactory as _
 from importlib.resources import is_resource, path
 from plone import api
 from plone import schema

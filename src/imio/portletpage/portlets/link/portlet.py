@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from imio.portletpage import _
 from imio.portletpage.interfaces import IPortletTemplate
+from imio.smartweb.locales import SmartwebMessageFactory as _
 from plone import schema
 from plone.app.portlets.portlets import base
 from plone.formwidget.namedfile.converter import NamedDataConverter
